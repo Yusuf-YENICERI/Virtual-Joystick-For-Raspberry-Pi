@@ -1,0 +1,30 @@
+#:kivy 1.0
+
+<MyScatter>:
+	do_rotation : False
+	do_scale: False
+    canvas:
+		Color:
+			rgb : [0.2, 1, 0.6]
+        Ellipse:
+	
+<BaseScatter>:
+	scat: scatter_id
+	curLabel: currentLabel
+	center: root.center
+	size: self.size
+	canvas:
+		Color:
+			rgb: [1, 1, .6]
+		Ellipse:
+			size : self.size
+	MyScatter:
+		id: scatter_id
+		center: root.center
+		on_touch_move: root.showPos(args[0])
+		on_touch_up: root.resetPos(args[0])
+	
+	CurrentPosLabel:
+		id: currentLabel
+		text: "      Selamun aleykum"
+		pos: root.pos
